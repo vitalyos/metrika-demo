@@ -1,0 +1,7 @@
+project(metrika-demo)
+cmake_minimum_required(VERSION 2.8)
+add_definitions(-Wall -std=c++11)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/inc)
+file(GLOB HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/inc/*.h)
+file(GLOB SRCS ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
+add_executable(${PROJECT_NAME} ${HEADERS} ${SRCS})

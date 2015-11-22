@@ -1,0 +1,19 @@
+env:
+  global:
+    # COVERITY_SCAN_TOKEN
+    # ** specific to your project **
+    - secure: "xxxx"
+
+language: cpp
+
+compiler:
+  - g++
+
+os: linux
+
+before_script:
+  - mkdir build
+  - cd build
+  - cmake ..
+
+script: make
