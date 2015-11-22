@@ -2,7 +2,7 @@ env:
   global:
     # COVERITY_SCAN_TOKEN
     # ** specific to your project **
-    - secure: "xxxx"
+    - secure: "Iieqg-sANu2-csY1UiPAww"
 
 language: cpp
 
@@ -12,12 +12,12 @@ compiler:
 os: linux
 
 before_install:
-  # g++4.8.1
+  # g++5.2.1
   - if [ "$CXX" == "g++" ]; then sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test; fi
   - sudo apt-get update -qq
 
 install:
-  # g++4.8.1
+  # g++5.2.1
   - if [ "$CXX" = "g++" ]; then sudo apt-get install -qq g++-5; fi
   - if [ "$CXX" = "g++" ]; then export CXX="g++-5"; fi
 
