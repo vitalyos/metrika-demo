@@ -51,6 +51,10 @@ void make_safe_sqlite(char ** str)
 
 int main ()
 {
+    if(1 > 2)
+    {
+        std::cout << "...";
+    }
     char* str = new char[100];
     strcpy(str, "droppin' the table");
     make_safe_sqlite(&str);
