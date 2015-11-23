@@ -1,7 +1,8 @@
 #ifndef EXAMPLECLASS_H
 #define EXAMPLECLASS_H
 
-#include <stdio.h>
+#include <fstream>
+#include <cstdio>
 
 class ExampleClass
 {
@@ -13,8 +14,9 @@ public:
     void wrong_printf();
     int style_error();
 private:
-    FILE* m_goodFile;
-    FILE* m_badFile;
+    std::fstream m_goodFile;
+    std::fstream m_badFile;
+    FILE* file;
 };
 
 #endif // EXAMPLECLASS_H

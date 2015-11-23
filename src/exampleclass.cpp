@@ -3,16 +3,14 @@
 
 ExampleClass::ExampleClass()
 {
-    m_goodFile = fopen("good.txt", "w");
-    m_badFile = fopen("bad.txt", "w");
+    m_goodFile.open("bad.txt", std::fstream::in | std::fstream::out);
+    m_badFile.open("good.txt", std::fstream::in | std::fstream::out);
+    file = fopen("example.txt", "w");
 }
 
 ExampleClass::~ExampleClass()
 {
-    if(m_goodFile)
-    {
-        fclose(m_goodFile);
-    }
+    m_goodFile.close();
 }
 
 void ExampleClass::memory_leak()
