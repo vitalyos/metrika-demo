@@ -11,7 +11,6 @@ public:
     ~ExampleClass();
     void memory_leak();
     void wrong_buffer();
-    void wrong_printf();
     int style_error();
 private:
     std::fstream m_goodFile;

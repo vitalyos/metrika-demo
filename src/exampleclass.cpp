@@ -26,11 +26,6 @@ void ExampleClass::wrong_buffer()
     printf("%s\n", buff);
 }
 
-void ExampleClass::wrong_printf()
-{
-
-}
-
 int ExampleClass::style_error()
 {
     int a = 24;
@@ -41,4 +36,3 @@ int ExampleClass::style_error()
     b = 24;
     return b;
 }
-

@@ -1,3 +1,3 @@
 #!/bin/bash
 reset
-cppcheck --enable=all --suppress=missingIncludeSystem -I inc .
+cppcheck --xml -j4 --enable=all --suppress=missingIncludeSystem -I inc .
