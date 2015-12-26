@@ -1,54 +1,30 @@
 env:
   global:
-    # COVERITY_SCAN_TOKEN
-    # ** specific to your project **
-    - secure: "jdu-zoCZfV5wXSYgJeZ0xw"
-
+  - secure: jdu-zoCZfV5wXSYgJeZ0xw
 language: cpp
-
 compiler:
-  - g++
-
+- g++
 os: linux
-
 before_install:
-  # g++5
-  - if [ "$CXX" == "g++" ]; then sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test; fi
-  - sudo apt-get update -qq
-
+- if [ "$CXX" == "g++" ]; then sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test;
+  fi
+- sudo apt-get update -qq
 install:
-  # g++5
-  - if [ "$CXX" = "g++" ]; then sudo apt-get install -qq g++-5; fi
-  - if [ "$CXX" = "g++" ]; then export CXX="g++-5"; fi
-
+- if [ "$CXX" = "g++" ]; then sudo apt-get install -qq g++-5; fi
+- if [ "$CXX" = "g++" ]; then export CXX="g++-5"; fi
 before_script:
-  - mkdir build
-  - cd build
-  - cmake ..
-
+- mkdir build
+- cd build
+- cmake ..
 script: make
-
 addons:
   coverity_scan:
-
-    # GitHub project metadata
-    # ** specific to your project **
     project:
       name: vitalyos/metrika-demo
       description: vitalyos/metrika-demo
-
-    # Where email notification of build analysis results will be sent
     notification_email: zsolt.vitalyos@gmail.com
-
-    # Commands to prepare for build_command
-    # ** likely specific to your build **
     build_command_prepend: cmake .
-
-    # The command that will be added as an argument to "cov-build" to compile your project for analysis,
-    # ** likely specific to your build **
     build_command: make all
-
-    # Pattern to match selecting branches that will run analysis. We recommend leaving this set to 'coverity_scan'.
-    # Take care in resource usage, and consider the build frequency allowances per
-    #   https://scan.coverity.com/faq#frequency
     branch_pattern: master
+COVERITY_SCAN_TOKEN=jdu-zoCZfV5wXSYgJeZ0xw:
+  secure: WFpV606XHslGjfhEuaGfuXLqfPRf88IrhK1sOBzB8aVs5BYyFqgwfp/Ms2kpEOCZzN310pvL7zI3CDJDvcZ2DlhBSGRpmJYN4/1tfqUAn9kF0pXfIXB4+LwwzfdiYG8f0aM9c/AUTbOneg2RW+DcV9+/aelFQFYqUMcrgtrz3u3aijm+1g1aUNgqPo0rZfEes80hBbixy13sANPO9hyKp1UThydQaaZNK7DReNTAu0/wgh+enx5C6D5UCacdbQLJDF8Q87wiXkqSsQtqISJiAuBF7zs+zWqZGfH9RHXQ7mOySzCITlxSPlX1FxZg8cIHdQIq1X9/Q6C+wiFYlsfWXbnpGQE8npfB8k+aE/TTfyCK1ukdkX5d7z9Y6/Mdukr0adPfUXK5T/h3nQjL6tIr6bKnRfcK0ZcMDr6o0EDTA283cF9f2qL313pPrhmrbZoegJmNl9DWsj91Q26P9TrnfN4+IGFrSUn0jzp4sU5aO0k6qzenCVbTr+cnqbEe0dCMVDByNif+ogIrrP2Ig1BbnaDIozu54a7VYCRSnXYUfywJEFIUYlDWA5Gxfmn9taUb5UAi6okesH/MtevWRSaeNG3xFgDYtDfTm4GV8m+dl1mMAVwg0s5pmzWAFTtF1TcSCwvWxgxAABURjXDA6kWeU+Oy5NpMJd3W+VF8mLepA94=
