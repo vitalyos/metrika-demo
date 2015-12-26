@@ -1,28 +1,33 @@
 env:
   global:
   - secure: "i0oS6SBhWtsRndpxB5zRQArnNtxGjr+6m1NaRJxSSqrnVsAIPQdzKX1ysATaELf4cScmewjkGR5X5buvTVEOoIFsyNPbc2Ce7z0IiGZUc1z30BQaOnvdjRsA45SMNukEQROEMYpYguRp/Rrzc8NmB2Eruvpy5z6M5IDJmg+i906aRTvRJfPZ6PCvzlf0WTgn5QDe8i0Kye5C0VCVDIaDtaUtW07V1ijmj4adNLwvd7PfOSEEjYyM9A/GHGFXyOwxrTC8pYxT0wh/nKIazqWVG5k9pmU62D9ze3ALLj02WGIZnxwx+LVPqfOvusw8CfUWM2+GMGwVDvu5ief6oWkv4cb7ZqnuyFoKHGn9GLtbt+O9h5QWMt4RMLZ+w3E7kwdKeP4XgJ5e47muWnvThY5jwAgErQ3qWUK+vVIWf0gYiOS1f7jx3zMQXPjOZwKCy2TXp5ufO1W6gSB4F39w6Nv6KYNrHoSrhndd12kJD6W2jTqlIRM7BMO3lS+usinsw/newrw3JXZqcgzKkVZXvbWJU+ZKXuRrS6c/iQcrncxxjQJenl4f7r9xbHxZTPzvwLp/TXTU1dzvKNUEaXPiSu7CMMORnEoUFxOpeJmmbXpMJmClUu4bXHfemBtC5vATXULf248nGiKdVJu1l13zyiCdxYibgZqw9wulWQtKmSJvWi0="
-language: cpp
-compiler:
-- g++
-os: linux
-before_install:
-- if [ "$CXX" == "g++" ]; then sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test;
-  fi
-- sudo apt-get update -qq
-install:
-- if [ "$CXX" = "g++" ]; then sudo apt-get install -qq g++-5; fi
-- if [ "$CXX" = "g++" ]; then export CXX="g++-5"; fi
-before_script:
-- mkdir build
-- cd build
-- cmake -DCMAKE_BUILD_TYPE=debug ..
-script: make
+
 addons:
+
   coverity_scan:
     project:
       name: vitalyos/metrika-demo
       description: vitalyos/metrika-demo
     notification_email: zsolt.vitalyos@gmail.com
-    build_command_prepend:
+    build_command_prepend: cmake .
     build_command: make
     branch_pattern: master
+
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - gcc-5.2
+    - g++-5.2
+
+language: cpp
+
+compiler: g++
+
+os: linux
+
+before_script: cmake -DCMAKE_BUILD_TYPE=debug .
+
+script: make
+
+install: if [ "$CXX" = "g++" ]; then export CXX="g++-5.2" CC="gcc-5.2"; fi
