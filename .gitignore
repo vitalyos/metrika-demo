@@ -4,6 +4,7 @@ Makefile
 cmake_install.cmake
 install_manifest.txt
 *.txt.user
+*.txt.user.*
 
 # Compiled Object files
 *.slo
