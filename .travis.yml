@@ -2,7 +2,7 @@ env:
   global:
     # COVERITY_SCAN_TOKEN
     # ** specific to your project **
-    - secure: "Iieqg-sANu2-csY1UiPAww"
+    - secure: "jdu-zoCZfV5wXSYgJeZ0xw"
 
 language: cpp
 
@@ -35,8 +35,7 @@ addons:
     # ** specific to your project **
     project:
       name: vitalyos/metrika-demo
-      version: 1.0
-      description: Metrika demo
+      description: vitalyos/metrika-demo
 
     # Where email notification of build analysis results will be sent
     notification_email: zsolt.vitalyos@gmail.com
