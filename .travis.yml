@@ -9,8 +9,10 @@ addons:
       name: vitalyos/metrika-demo
       description: vitalyos/metrika-demo
     notification_email: zsolt.vitalyos@gmail.com
-    build_command_prepend: "cmake -DCMAKE_BUILD_TYPE=debug ."
-    build_command: "--dir cov-int make"
+    build_command_prepend:
+      - "make clean"
+      - "cmake -DCMAKE_BUILD_TYPE=debug ."
+    build_command: "make all"
     branch_pattern: master
 
   apt:
