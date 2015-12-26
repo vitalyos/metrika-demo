@@ -9,7 +9,7 @@ addons:
       name: vitalyos/metrika-demo
       description: vitalyos/metrika-demo
     notification_email: zsolt.vitalyos@gmail.com
-    build_command_prepend: .coverity_before.sh
+    build_command_prepend: ./.coverity_before.sh
     build_command: "make all"
     branch_pattern: master
 
