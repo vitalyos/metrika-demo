@@ -24,7 +24,6 @@ addons:
       description: vitalyos/metrika-demo
     notification_email: zsolt.vitalyos@gmail.com
     build_command_prepend:
-      - cov-configure --comptype g++ --compiler /usr/bin/g++-5
-      - cmake .
+      - cmake -DCMAKE_BUILD_TYPE=Debug .
     build_command: make
     branch_pattern: master
