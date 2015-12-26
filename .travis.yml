@@ -24,5 +24,5 @@ addons:
       description: vitalyos/metrika-demo
     notification_email: zsolt.vitalyos@gmail.com
     build_command_prepend: cmake .
-    build_command: make all
+    build_command: make
     branch_pattern: master
