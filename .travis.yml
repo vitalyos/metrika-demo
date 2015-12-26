@@ -12,12 +12,12 @@ compiler:
 os: linux
 
 before_install:
-  # g++5.2.1
+  # g++5
   - if [ "$CXX" == "g++" ]; then sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test; fi
   - sudo apt-get update -qq
 
 install:
-  # g++5.2.1
+  # g++5
   - if [ "$CXX" = "g++" ]; then sudo apt-get install -qq g++-5; fi
   - if [ "$CXX" = "g++" ]; then export CXX="g++-5"; fi
 
@@ -55,4 +55,4 @@ addons:
     # Pattern to match selecting branches that will run analysis. We recommend leaving this set to 'coverity_scan'.
     # Take care in resource usage, and consider the build frequency allowances per
     #   https://scan.coverity.com/faq#frequency
-    branch_pattern: main
+    branch_pattern: master
