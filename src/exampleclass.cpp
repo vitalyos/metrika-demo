@@ -1,5 +1,6 @@
 #include "exampleclass.h"
 #include <cstring>
+#include <iostream>
 
 ExampleClass::ExampleClass()
 {
@@ -35,4 +36,9 @@ int ExampleClass::style_error()
     return c;
     b = 24;
     return b;
+}
+
+void ExampleClass::use_uninitialized()
+{
+    std::cout << "not init: " << m_uninit << std::endl;
 }
