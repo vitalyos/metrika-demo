@@ -7,11 +7,10 @@ addons:
   coverity_scan:
     project:
       name: vitalyos/metrika-demo
-      description: vitalyos/metrika-demo
     notification_email: zsolt.vitalyos@gmail.com
     build_command_prepend: ./.coverity_before.sh
     build_command: "make"
-    branch_pattern: master
+    branch_pattern: coverity_scan
 
   apt:
     sources:
