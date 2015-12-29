@@ -1,5 +1,2 @@
-cd ..
-rm -rf metrika-demo-build
-mkdir metrika-demo-build
-cd metrika-demo-build
-cmake -DCMAKE_BUILD_TYPE=Debug ../metrika-demo
+make clean
+cmake -DCMAKE_CXX_COMPILER=g++-5 -DCMAKE_CC_COMPILER=gcc-5 .
